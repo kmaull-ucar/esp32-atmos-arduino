@@ -88,7 +88,7 @@ To install the ESP32 board library, follow these instructions for adding the boa
 
 1. begin by executing
 ```sh
-$ arduino config init
+$ arduino-cli config init
 ```
 make note of the config file location (often `~/.arduino15/arduino-cli.yaml`
 
