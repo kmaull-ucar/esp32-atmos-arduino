@@ -3,8 +3,7 @@ This repo contains the Arduino reference implementation
 for IoTwx ATMOS node.
 
 The reference implementation includes the code that
-obtains data from the Grove I2C attached [BME280 environmental sensor](https://www.seeedstudio.com/Grove-BME280-Envi
-ronmental-Sensor-Temperature-Humidity-Barometer.html)
+obtains data from the Grove I2C attached [BME280 environmental sensor](https://www.seeedstudio.com/Grove-BME280-Environmental-Sensor-Temperature-Humidity-Barometer.html)
 and over Wifi pushes that data to a [CHORDS portal ](https://www.earthcube.org/group/chords).  
 Thus in order to see the fully implemented use case of this
 code, you will need to have a CHORDS portal running that
