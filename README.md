@@ -99,20 +99,23 @@ look like:
 ```yaml
 board_manager:
   additional_urls: [
-        https://dl.espressif.com/dl/package_esp32_index.json, http://arduino.esp8266
-.com/stable/package_esp8266com_index.json
+        https://dl.espressif.com/dl/package_esp32_index.json
 ]
 ```
 **WARNING:** Do not alter any other aspects of config file, as it may
 disturb other settings that may be important to the proper functioning
 of the CLI.
 
-3. clone this repo anywhere you'd like on your filesystem (`~/` may be appropriate).
+3. clone this repo anywhere you'd like on your filesystem (`~/` may be appropriate).  You will see a new directory called `esp32-atmos-arduino`.
 
-4. compile the code with
+4. change to the `src` directory and compile the code with the following command
 ```bash
-arduino-cli compile -fqbn esp32:esp32:m5stick-c
+arduino-cli compile --fqbn <your_board_name, e.g. esp32:esp32:m5stick-c> AtmosNode
 ```
-5. upload
+5. now that the code is compiled, it is ready to upload:
+```bash
+arduino-cli upload -p /dev/ttyUSB0 --fqbn <your_board_name, e.g. esp32:esp32:m5stick-c> AtmosNode
+```
+Note that if your device is on a port other than `/dev/ttyUSB0` made the appropriate change to that flag.
 
-6. have fun!
+6. You are now ready to have fun with the first component of your IoTwx!
