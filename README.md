@@ -21,7 +21,7 @@ See the instructions on how to setup the portal and the orchestrator.
 
 ## Dependencies
 
-### Grove BME280 Arduino library
+### Grove BME280+BME680 Arduino library
 You will need to first install the [SeeedStudio Grove BME280](https://github.com/Seeed-Studio/Grove_BME280)
 Arduino library as it contains the core library for the
 main sensor of the node.
@@ -35,28 +35,45 @@ The basic steps would be as follows:
 
 1. go into your `~/Arduino/libraries` directory
 2. type `git clone https://github.com/Seeed-Studio/Grove_BME280`
-3. if successful, you will see the `Grove_BME280` directory in your `~/Arduino/libraries` and you're done with this
+2. type `git clone https://github.com/Seeed-Studio/Seeed_BME680`
+3. if successful, you will see the `Grove_BME280` and `Seeed_BME680` 
+directories in your `~/Arduino/libraries` and you're done with this
 step!
 
 ### MQTT libraries
 Data from the sensors is obtained using MQTT as the transport
 mechanism.  You will need to install two MQTT libraries
-[PubSubClient](https://github.com/knolleary/pubsubclient) and [EspMQTTClient](https://github.com/plapointe6/EspMQTTC
-lient).
+[PubSubClient](https://github.com/knolleary/pubsubclient) and 
+[MQTT](https://github.com/256dpi/arduino-mqtt) by 256dpi
+
 The former library provides the base MQTT client and server
-code, while the latter provides an wrapper implementation
+code, while the latter provides an implementation
 to the client simplifying the entire connection management
-process.  To install, perform the following steps from your command line while in the `Arduino/libraries` directory:
+process.  To install, perform the following steps from your 
+command line while in the `Arduino/libraries` directory:
 
 1. `git clone https://github.com/plapointe6/EspMQTTClient.git`
-2. `git clone https://github.com/knolleary/pubsubclient.git`
+2. `git clone https://github.com/256dpi/arduino-mqtt.git`
 
-After these two commands you will see the `EspMQTTClient` and
+After these two commands you will see the `arduino-mqtt` and
 `pubsubclient` directories in your `~Arduino/libraries`
 directory.  If you do not, try troubleshooting what may have
 gone wrong with your clone.  If that does not work, _you may
 download the library ZIP file directly_ from the respective repositories
 and unzip each of the contents into the `~Arduino/libraries` directory.
+
+### FastLED
+We use the FastLED libraries for visual indicators of activity on
+the board.
+
+1. `git clone https://github.com/FastLED/FastLED.git`
+
+### NTPClient 
+
+We use this libraries to get the network time
+so that timestamps can be transmitted with the data payloads.
+
+1. `git clone https://github.com/arduino-libraries/NTPClient`
 
 ### Arduino-CLI
 
@@ -83,6 +100,9 @@ installed and use the correct ESP32 board library for your
 microcontroller.  We encourage the use of the m5stack Atom
 Lite because of its simplicity and built-in Grove connectors,
 making it easy to use and install.
+
+**NOTE**: While we use the m5stack, the ESP32 Pico library works
+just as good as the m5stack libraries.
 
 To install the ESP32 board library, follow these instructions for adding the board definition:
 
